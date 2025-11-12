@@ -5,6 +5,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({
+    origin: ['http://localhost:3000'], // Frontend URL
+  });
+
   const config = new DocumentBuilder()
     .setTitle('Pricing Service API')
     .setDescription('API for managing pricing profiles and calculations')
