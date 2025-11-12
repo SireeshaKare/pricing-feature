@@ -5,7 +5,7 @@ import {
   useCalculatePricingMutation,
   useGetProductsBySupplierQuery,
 } from "@/store/api/pricingApi";
-import { Checkbox, Input, TextField } from "@mui/material";
+import { Checkbox, TextField } from "@mui/material";
 import { useState } from "react";
 
 export const ProductTable = () => {
