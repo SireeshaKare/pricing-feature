@@ -4,6 +4,6 @@ import { PricingProfileService } from './pricing-profile.service';
 
 @Module({
   controllers: [PricingProfileController],
-  providers: [PricingProfileService]
+  providers: [PricingProfileService],
 })
 export class PricingProfileModule {}
