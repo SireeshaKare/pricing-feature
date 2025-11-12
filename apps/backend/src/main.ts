@@ -9,7 +9,6 @@ async function bootstrap() {
     .setTitle('Pricing Service API')
     .setDescription('API for managing pricing profiles and calculations')
     .setVersion('1.0')
-    .addTag('cats')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
