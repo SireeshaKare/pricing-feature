@@ -14,14 +14,21 @@ import { ProductDto } from 'src/shared/dto/product.dto';
 
 @Injectable()
 export class PricingProfileService {
+  //Calculate new price based on pricing profile data
   calculateNewPrice(pricingData: PricingProfileDto): ProductDto[] {
-    const { basedOn, adjustmentMode, incrementMode, productSelected } =
-      pricingData;
+    const {
+      basedOn,
+      adjustmentMode,
+      incrementMode,
+      productSelected,
+      adjustmentValue,
+    } = pricingData;
     if (
       !basedOn ||
       productSelected.length === 0 ||
       !adjustmentMode ||
-      !incrementMode
+      !incrementMode ||
+      !adjustmentValue
     ) {
       throw new BadRequestException(
         '[PricingProfileService.calculateNewPrice]: Invalid pricing data',
@@ -31,9 +38,9 @@ export class PricingProfileService {
     const calculatedPriceProfile = <ProductDto[]>[];
 
     productSelected.forEach((product) => {
-      const { globalWholesalePrice, adjustmentValue } = product;
+      const { globalWholesalePrice } = product;
       let newPrice = globalWholesalePrice;
-      const value = adjustmentValue || 0;
+      const value = adjustmentValue;
 
       if (adjustmentMode === AdjustmentMode.FIXED) {
         if (incrementMode === IncrementMode.INCREASE) {
@@ -64,6 +71,7 @@ export class PricingProfileService {
     return calculatedPriceProfile;
   }
 
+  //Get pricing profiles by supplier ID
   getPricingProfilesbySupplierId(
     supplierId: string,
   ): CreatePricingProfileDto[] {
@@ -86,6 +94,7 @@ export class PricingProfileService {
     return supplierProfiles;
   }
 
+  //Create a new pricing profile
   createPricingProfile(data: PricingProfileDto): CreatePricingProfileDto {
     const { supplierId, profileName, description } = data;
     if (!supplierId || !profileName) {
@@ -106,6 +115,7 @@ export class PricingProfileService {
     return newProfile;
   }
 
+  //Update an existing pricing profile
   updatePricingProfile(
     id: string,
     data: PricingProfileDto,

@@ -8,4 +8,5 @@ export interface ProductDto {
   segmentId: string;
   globalWholesalePrice: number;
   newPrice?: number;
+  adjustmentValue?: number;
 }

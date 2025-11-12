@@ -26,5 +26,4 @@ export interface PricingProfileDto extends CreatePricingProfileDto {
   basedOn: BasedOn;
   adjustmentMode: AdjustmentMode;
   incrementMode: IncrementMode;
-  adjustmentValue: number;
 }

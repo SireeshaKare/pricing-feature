@@ -81,4 +81,10 @@ export const products = [
   },
 ];
 
-export const pricingProfiles = [];
+export const pricingProfiles = [
+  {
+    id: 'PROFILE001',
+    supplierId: 'SUPPLIER001',
+    profileName: 'Holiday Season Discount',
+  },
+];

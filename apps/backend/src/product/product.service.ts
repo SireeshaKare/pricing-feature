@@ -8,6 +8,7 @@ import { products } from '../shared/sample-data/sample-data';
 
 @Injectable()
 export class ProductService {
+  // Get all products by supplier ID
   getAllProductsBySupplierId(supplierId: string): ProductDto[] {
     if (!supplierId) {
       throw new BadRequestException(
