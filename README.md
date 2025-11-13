@@ -57,7 +57,7 @@ npm install
 
 ### Start the servers
 
-Both the frontend and backend server can be started with this one command.
+Both the frontend and backend servers can be started with this one command.
 
 From the root directory (/pricing-feature):
 
@@ -108,11 +108,12 @@ Swagger can be accessed via http://localhost:4000/api
 enum SelectionMode {
   ONE = "one",
   MULTIPLE = "multiple",
-  ALL = "all" }
+  ALL = "all"
+}
 ```
 
-- Use react hook form and zod for form validation
-  - Centralized form state (no multiple useStates for each field).
+- Use React Hook Form and zod for form validation
+  - Centralised form state (no multiple useStates for each field).
   - Easier to manage field defaults and resets.
   - Extendable validation schema as more pricing rules are added.
   - Automatic validation messages (e.g., required, min/max values).
